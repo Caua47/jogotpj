@@ -125,6 +125,27 @@ grow_vertical = 2
 max_value = 170.0
 value = 170.0
 
+[node name="fala1" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 263.0
+offset_top = 269.0
+offset_right = 509.39996
+offset_bottom = 306.59998
+scale = Vector2(3, 3)
+text = "Você fugiu PEIDAO"
+horizontal_alignment = 1
+
+[node name="ratataviado" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="pikamon" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
 
@@ -133,26 +154,10 @@ script = ExtResource("1_wtcfe")
 
 [node name="Pikachu" type="CharacterBody2D" parent="Node2D"]
 script = ExtResource("2_0e48y")
-nome = "Pikachu"
-tipo = "Eletrico"
-hp = 180
-ataque = 103
-defesa = 76
-sp_ataque = 94
-sp_defesa = 94
-velocidade = 166
 metadata/_custom_type_script = "uid://cmrq4jcdfgscm"
 
 [node name="Ratata" type="CharacterBody2D" parent="Node2D"]
 script = ExtResource("3_epypp")
-nome = "Ratata"
-tipo = "Normal"
-hp = 170
-ataque = 105
-defesa = 67
-sp_ataque = 43
-sp_defesa = 67
-velocidade = 137
 metadata/_custom_type_script = "uid://cmrq4jcdfgscm"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

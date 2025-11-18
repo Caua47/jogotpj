@@ -29,5 +29,6 @@ func _on_button_4_button_down() -> void:
 
 
 func _on_button_5_button_down() -> void:
-	print("Você fugiu")
+	$fala1.visible = true
+	await get_tree().create_timer(1.5).timeout
 	get_tree().quit()

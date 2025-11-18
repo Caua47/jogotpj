@@ -1,0 +1,162 @@
+[gd_scene load_steps=5 format=3 uid="uid://bao38qk1unpg8"]
+
+[ext_resource type="Script" uid="uid://so22d2crc0bo" path="res://node_2d.gd" id="1_0hol4"]
+[ext_resource type="Script" uid="uid://cmrq4jcdfgscm" path="res://base.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://b383wbnbwqtdd" path="res://pikachu.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dc7f44soybhp" path="res://ratata.gd" id="3_epypp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0hol4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -529.0
+offset_top = 127.0
+offset_right = -162.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ataque Rapido"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = 127.0
+offset_right = 196.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Choque do trovão"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = 220.0
+offset_right = -164.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Esquivar"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 220.0
+offset_right = 197.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trovão"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 411.0
+offset_top = 228.0
+offset_right = 560.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fugir"
+
+[node name="Vida_pikachu" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -501.0
+offset_top = -41.0
+offset_right = -180.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+max_value = 180.0
+value = 180.0
+
+[node name="Vida_ratata" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 237.0
+offset_top = -205.0
+offset_right = 558.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 170.0
+value = 170.0
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="Pikachu" type="CharacterBody2D" parent="Node2D"]
+script = ExtResource("2_0e48y")
+nome = "Pikachu"
+tipo = "Eletrico"
+hp = 180
+ataque = 103
+defesa = 76
+sp_ataque = 94
+sp_defesa = 94
+velocidade = 166
+metadata/_custom_type_script = "uid://cmrq4jcdfgscm"
+
+[node name="Ratata" type="CharacterBody2D" parent="Node2D"]
+script = ExtResource("3_epypp")
+nome = "Ratata"
+tipo = "Normal"
+hp = 170
+ataque = 105
+defesa = 67
+sp_ataque = 43
+sp_defesa = 67
+velocidade = 137
+metadata/_custom_type_script = "uid://cmrq4jcdfgscm"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="Button5" to="." method="_on_button_5_button_down"]

@@ -32,8 +32,8 @@ func pode_atacar() -> bool:
 func choque_do_trovao(alvo: Base) -> void:
 	if not pode_atacar():
 		return
-
-	add_text("%s usou Choque do Trovão!" % nome)
+	if velocidade > alvo.velocidade:
+		add_text("%s usou Choque do Trovão!" % nome)
 
 	var dano = max(sp_ataque - alvo.sp_defesa, 0)
 	if aplicar_dano(alvo, dano):
@@ -47,8 +47,8 @@ func choque_do_trovao(alvo: Base) -> void:
 func ataque_rapido(alvo: Base) -> void:
 	if not pode_atacar():
 		return
-
-	add_text("%s usou Ataque Rápido!" % nome)
+	if velocidade > alvo.velocidade:
+		add_text("%s usou Ataque Rápido!" % nome)
 
 	var dano = max(ataque - alvo.defesa, 0)
 
@@ -75,8 +75,8 @@ func esquiva(alvo: Base):
 func trovao(alvo: Base) -> void:
 	if not pode_atacar():
 		return
-
-	add_text("%s usou Trovão!" % nome)
+	if velocidade > alvo.velocidade:
+		add_text("%s usou Trovão!" % nome)
 
 	var dano = max(sp_ataque - alvo.sp_defesa, 0)
 	if aplicar_dano(alvo, dano):

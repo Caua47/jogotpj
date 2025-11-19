@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bao38qk1unpg8"]
+[gd_scene load_steps=9 format=3 uid="uid://bao38qk1unpg8"]
 
 [ext_resource type="Script" uid="uid://so22d2crc0bo" path="res://node_2d.gd" id="1_0hol4"]
 [ext_resource type="Script" uid="uid://cmrq4jcdfgscm" path="res://base.gd" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://b383wbnbwqtdd" path="res://pikachu.gd" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://cxax1wbwpndq5" path="res://CENARIO POKEMON.webp" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://wpymtscmb35n" path="res://Barrinha2.png" id="3_d21ai"]
 [ext_resource type="Script" uid="uid://dc7f44soybhp" path="res://ratata.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://d6521wqa8mg2" path="res://Pikachu-removebg-preview.png" id="3_rj586"]
+[ext_resource type="Texture2D" uid="uid://d0hbbaw0esp17" path="res://Ratata-removebg-preview.png" id="4_4d7sh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +19,20 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 323.5)
+scale = Vector2(1.09714, 1.20185)
+texture = ExtResource("2_kdubu")
+
+[node name="Pikachu_imagem" type="Sprite2D" parent="."]
+position = Vector2(374, 429)
+scale = Vector2(3, 2.096)
+texture = ExtResource("3_rj586")
+
+[node name="Ratata_imagem" type="Sprite2D" parent="."]
+position = Vector2(770, 280)
+texture = ExtResource("4_4d7sh")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -91,6 +109,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Fugir"
 
+[node name="caixa_vida" type="Sprite2D" parent="."]
+position = Vector2(211, 257)
+scale = Vector2(0.302148, 0.210765)
+texture = ExtResource("3_d21ai")
+
+[node name="Label" type="Label" parent="caixa_vida"]
+offset_left = -632.14
+offset_top = -175.551
+offset_right = -571.14
+offset_bottom = -152.551
+scale = Vector2(8, 8)
+size_flags_stretch_ratio = 8.87
+text = "Pikachu"
+
 [node name="Vida_pikachu" type="ProgressBar" parent="."]
 modulate = Color(0, 1, 0, 1)
 self_modulate = Color(0, 1, 0, 1)
@@ -100,10 +132,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -501.0
-offset_top = -41.0
-offset_right = -223.0
-offset_bottom = -31.0
+offset_left = -456.0
+offset_top = -57.0
+offset_right = -263.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -111,6 +143,19 @@ size_flags_vertical = 4
 max_value = 180.0
 value = 180.0
 show_percentage = false
+
+[node name="Caixa_vida_ratata" type="Sprite2D" parent="."]
+position = Vector2(904, 107)
+scale = Vector2(0.303385, 0.211)
+texture = ExtResource("3_d21ai")
+
+[node name="Label" type="Label" parent="Caixa_vida_ratata"]
+offset_left = -632.858
+offset_top = -161.137
+offset_right = -581.858
+offset_bottom = -138.137
+scale = Vector2(8, 8)
+text = "Ratata"
 
 [node name="Vida_ratata" type="ProgressBar" parent="."]
 modulate = Color(0, 1, 0, 1)
@@ -122,9 +167,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 237.0
-offset_top = -205.0
-offset_right = 515.0
-offset_bottom = -195.0
+offset_top = -206.0
+offset_right = 432.0
+offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 170.0
@@ -141,16 +186,6 @@ offset_bottom = 306.6
 scale = Vector2(3, 3)
 text = "Você fugiu PEIDAO"
 horizontal_alignment = 1
-
-[node name="ratataviado" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="pikamon" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
@@ -181,6 +216,17 @@ sp_ataque = 49
 sp_defesa = 67
 velocidade = 137
 metadata/_custom_type_script = "uid://cmrq4jcdfgscm"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 345.0
+offset_bottom = 211.0
+
+[node name="pikamon" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="ratataviado" type="Label" parent="ScrollContainer"]
+layout_mode = 2
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

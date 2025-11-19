@@ -1,7 +1,7 @@
 extends Base
 
 @onready var vida = $"../../Vida_pikachu"
-@onready var ratata = $"../../pikamon"
+@onready var ratata = $"../../ScrollContainer/pikamon"
 
 func add_text(msg: String):
 	ratata.text += msg + "\n"
@@ -20,5 +20,5 @@ func revidar_ataque(alvo: Base):
 		vida.value = 0
 		alvo.hp = 0
 		add_text("%s foi derrotado!" % alvo.nome)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(5).timeout
 		get_tree().quit()

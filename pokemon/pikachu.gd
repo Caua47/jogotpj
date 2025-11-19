@@ -1,7 +1,7 @@
 extends Base
 
 @onready var vida = $"../../Vida_ratata"
-@onready var pikamon = $"../../pikamon"
+@onready var pikamon = $"../../ScrollContainer/pikamon"
 
 func add_text(msg: String):
 	pikamon.text += msg + "\n"
@@ -29,28 +29,19 @@ func pode_atacar() -> bool:
 	return true
 
 
-func choque_do_trovao(alvo:Base) -> void:
-	if velocidade >= alvo.velocidade:
-		if hp <= 0:
-			if vida <= 0:
-				add_text("%s está desmaiado e não pode atacar." % nome)
-				return
-		add_text("%s usou Choque do trovão" % [nome])
-		var dano =  max(sp_ataque - alvo.sp_defesa, 0)
-		alvo.hp -= dano
-		vida.value -= dano
-		add_text("%s causou %d de dano em %s." % [nome, dano, alvo.nome])
-		if alvo.hp <= 0:
-			vida.value = 0
-			alvo.hp = 0
-			add_text("%s foi derrotado!" % alvo.nome)
-			add_text("%s ganho!!!" %nome)
-			await get_tree().create_timer(0.3).timeout
-			get_tree().quit()
-		else:
-			alvo.revidar_ataque(self)
-	else:
-		alvo.revidar_ataque(self)
+func choque_do_trovao(alvo: Base) -> void:
+	if not pode_atacar():
+		return
+	if velocidade > alvo.velocidade:
+		add_text("%s usou Choque do Trovão!" % nome)
+
+	var dano = max(sp_ataque - alvo.sp_defesa, 0)
+	if aplicar_dano(alvo, dano):
+		await get_tree().create_timer(5).timeout
+		get_tree().quit()
+		return
+
+	alvo.revidar_ataque(self)
 
 
 func ataque_rapido(alvo: Base) -> void:
@@ -62,7 +53,7 @@ func ataque_rapido(alvo: Base) -> void:
 	var dano = max(ataque - alvo.defesa, 0)
 
 	if aplicar_dano(alvo, dano):
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(5).timeout
 		get_tree().quit()
 		return
 
@@ -89,7 +80,7 @@ func trovao(alvo: Base) -> void:
 
 	var dano = max(sp_ataque - alvo.sp_defesa, 0)
 	if aplicar_dano(alvo, dano):
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(5).timeout
 		get_tree().quit()
 		return
 

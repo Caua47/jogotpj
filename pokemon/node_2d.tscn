@@ -92,6 +92,8 @@ grow_vertical = 2
 text = "Fugir"
 
 [node name="Vida_pikachu" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,16 +102,19 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -501.0
 offset_top = -41.0
-offset_right = -180.0
-offset_bottom = -2.0
+offset_right = -223.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 max_value = 180.0
 value = 180.0
+show_percentage = false
 
 [node name="Vida_ratata" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,12 +123,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 237.0
 offset_top = -205.0
-offset_right = 558.0
-offset_bottom = -166.0
+offset_right = 515.0
+offset_bottom = -195.0
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 170.0
 value = 170.0
+show_percentage = false
 
 [node name="fala1" type="Label" parent="."]
 visible = false
